@@ -56,7 +56,7 @@ public:
 		return (this->c * pow(r, this->d));
 	}
 
-	// Преобразование одночлена к типу string
+	// Преобразование к string
 	char *toString()
 	{
 		char *str = new char[size];
@@ -72,31 +72,30 @@ public:
 		return str;
 	}
 
-	// ПРОЧИТАТЬ СТЕПЕНЬ одночлена
+	// прочитать степень одночлена
 	int Degree() const
 	{
 		return (this->d);
 	}
 
-	// ЗАПИСАТЬ СТЕПЕНЬ одночлена
+	// записать степень одночлена
 	void SetDeg(int deg)
 	{
 		this->d = deg;
 	}
 
-	// ПРОЧИТАТЬ КОЭФФИЦИЕНТ одночлена
+	// прочитать коэффициент одночлена
 	int Coeff() const
 	{
 		return (this->c);
 	}
 
-	// ЗАПИСАТЬ СТЕПЕНЬ одночлена
+	// записать степень
 	void SetCoeff(int cof)
 	{
 		this->c = cof;
 	}
 
-	// ========================================= 
 	// Сложение одночлена с одночленом
 	void operator += (TMember& q)
 	{
@@ -117,5 +116,4 @@ public:
 		this->c *= q.Coeff();
 		this->d += q.Degree();
 	}
-	// ============================================
 };

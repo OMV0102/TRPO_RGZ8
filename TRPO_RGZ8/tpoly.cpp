@@ -50,7 +50,7 @@ public:
 		return NULL;
 	}
 
-	// В СТРОКУ
+	// конвертирование полинома в строку
 	char *toString()
 	{
 		this->RemoveZero();
@@ -62,7 +62,7 @@ public:
 		return out;
 	}
 
-	// ОЧИСТИТЬ
+	// очистить
 	void Clear()
 	{
 		this->members.clear();
@@ -86,7 +86,7 @@ public:
 		return f;
 	}
 
-	// НОРМАЛИЗОВАННЫЙ ПОЛИНОМ
+	// нормализация полинома
 	void Norm()
 	{
 		while (!reg())
@@ -105,7 +105,7 @@ public:
 		}
 	}
 
-	// ПРИВЕДЕНИЕ ПОДОБНЫХ
+	// приведение подобных
 	void similar()
 	{
 		TPoly *buf = new TPoly(0, 0);
@@ -128,7 +128,7 @@ public:
 		*this = *buf;
 	}
 
-	// оператор СКОБКИ
+	// оператор индекс
 	TMember* operator[](int i)
 	{
 		if (i < this->Count())
@@ -137,7 +137,7 @@ public:
 			return NULL;
 	}
 
-	// оператор ПЛЮС РАВНО
+	// оператор плюс равно +=
 	void operator += (TMember& q)
 	{
 		TMember *cur = this->FindIndByDeg(q.Degree());
@@ -147,7 +147,7 @@ public:
 			this->members.insert(std::pair<int, TMember>(this->members.size(), TMember(q)));
 	}
 
-	// оператор ПЛЮС
+	// оператор плюс +
 	TPoly* operator+(TPoly& T)
 	{
 		TPoly *res = new TPoly(*this);
@@ -158,14 +158,14 @@ public:
 		return res;
 	}
 
-	// оператор УМНОЖИТЬ РАВНО
+	// оператор умножить равно *=
 	void operator*=(TMember& q)
 	{
 		for (int i = 0; i < this->Count(); i++)
 			this->members[i] *= q;
 	}
 
-	// оператор УМНОЖИТЬ
+	// оператор умножить *
 	TPoly* operator*(TPoly& B)
 	{
 		TPoly *res = new TPoly(0, 0);
@@ -184,7 +184,7 @@ public:
 
 	}
 
-	// оператор МИНУС
+	// оператор минус -
 	TPoly* operator - (TPoly& q)
 	{
 		TPoly *res = new TPoly(*this);
@@ -199,7 +199,7 @@ public:
 		return res;
 	}
 
-	// оператор СРАВНЕНИЕ
+	// оператор сравнения ==
 	bool operator==(TPoly& q)
 	{
 		if (this->Count() != q.Count())
@@ -210,7 +210,7 @@ public:
 		return true;
 	}
 
-	// оператор ПРОТИВОПОЛОЖНЫЙ ЗНАК
+	// оператор обратный знак
 	void operator -()
 	{
 		for (int i = 0; i < this->Count(); i++)
@@ -219,7 +219,7 @@ public:
 		}
 	}
 
-	// ДИФФЕРЕНЦИРОВАНИЕ
+	// дифференцирование
 	TPoly* Diff()
 	{
 		TPoly *res = new TPoly(*this);
